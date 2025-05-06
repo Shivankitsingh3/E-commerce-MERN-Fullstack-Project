@@ -41,18 +41,21 @@ const Navbar = () => {
       </ul>
       <div className='flex items-center gap-6'>
         <img
-          onClick={() =>  setShowSearch(true)}
+          onClick={() => setShowSearch(true)}
           src={assets.search_icon}
           alt=''
           className='w-5 cursor-pointer sm:block'
         />
 
         <div className='group relative sm:block'>
-          <img
-            src={assets.profile_icon}
-            alt=''
-            className='w-5 cursor-pointer'
-          />
+          <Link to={'/login'}>
+            <img
+              src={assets.profile_icon}
+              alt=''
+              className='w-5 cursor-pointer'
+            />
+          </Link>
+
           <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
             <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
               <p className='cursor-pointer hover:text-black'>My Profile</p>
@@ -67,7 +70,9 @@ const Navbar = () => {
             alt=''
             className='w-5 cursor-pointer min-w-5'
           />
-          <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
+          <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>
+            {getCartCount()}
+          </p>
         </Link>
         <img
           onClick={() => setVisible(true)}
