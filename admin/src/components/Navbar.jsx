@@ -1,7 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 
-const Navbar = () => {
+const Navbar = ({setToken}) => {
   return (
     <div className='flex items-center py-2 px-[4%] justify-between'>
       <img
@@ -9,7 +9,7 @@ const Navbar = () => {
         alt=''
         className='w-30 h-auto max-h-14 sm:w-38 md:w-45 lg:w-53'
       />
-      <button className='bg-gray-600 text-white px-5 py-2 sm:px-7 rounded-full text-xs sm:text-sm'>
+      <button onClick={() => setToken('')} className='bg-gray-600 text-white px-5 py-2 sm:px-7 rounded-full text-xs sm:text-sm cursor-pointer'>
         Logout
       </button>
     </div>
