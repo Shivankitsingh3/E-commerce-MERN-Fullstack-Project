@@ -5,21 +5,36 @@ import connectDB from './config/mongodb.js'
 import connectCloudinary from './config/cloudinary.js'
 import userRouter from './routes/user.route.js'
 import productRouter from './routes/product.route.js'
+import cartRouter from './routes/cart.route.js'
 
-// App Config
+
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 4000;
+
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
 
 connectDB()
 connectCloudinary()
 
-//middleware
-app.use(express.json())
-app.use(cors())
 
-//Api endpoints
+app.use(express.json())
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    },
+    credentials: true,
+  })
+)
+
+
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter);
+app.use('/api/cart', cartRouter);
 
 app.get('/', (req, res) => {
   res.send('API Working')
