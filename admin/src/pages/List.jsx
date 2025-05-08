@@ -51,7 +51,6 @@ const List = ({ token }) => {
       <h2 className='text-lg font-bold mb-4'>All Products List</h2>
 
       <div className='hidden md:block'>
-        
         <div className='flex bg-gray-100 p-2 font-bold'>
           <div className='w-24'>Image</div>
           <div className='flex-1'>Name</div>
@@ -103,6 +102,7 @@ const List = ({ token }) => {
         ))}
       </div>
     </div>
-  )}
+  )
+}
 
 export default List

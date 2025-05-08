@@ -35,7 +35,7 @@ const loginUser = async (req, res) => {
   }
 }
 
-// Route fro user register
+// Route for user register
 
 const registerUser = async (req, res) => {
   try {
