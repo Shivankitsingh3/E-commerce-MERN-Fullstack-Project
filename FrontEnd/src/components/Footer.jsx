@@ -6,7 +6,7 @@ const Footer = () => {
     <div className=''>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
         <div className=''>
-          <img src={assets.shopinitylogo} alt='' className='mb-5 w-40 h-14' />
+          <img src={assets.shopinitylogo} alt='' className='mb-5 w-50 h-15' />
           <p className='w-full md:w-2/3 text-gray-600'>
             Look good. Do better. Because the Earth doesn’t do returns. We craft
             with conscience, you wear with pride. Together, we’re changing the
