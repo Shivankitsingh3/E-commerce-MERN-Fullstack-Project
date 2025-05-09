@@ -155,11 +155,10 @@ const placeOrderRazorpay = async (req, res) => {
       currency: currency.toUpperCase(),
       receipt: newOrder._id.toString(),
       notes: {
-        userId: userId.toString(), // Store user ID for reference
+        userId: userId.toString(),
       },
     }
 
-    // Convert callback to promise
     const order = await new Promise((resolve, reject) => {
       razorpayInstance.orders.create(options, (error, order) => {
         if (error) reject(error)
@@ -170,11 +169,11 @@ const placeOrderRazorpay = async (req, res) => {
     res.json({
       success: true,
       order,
-      orderId: newOrder._id, // Send our database order ID to frontend
+      orderId: newOrder._id,
     })
   } catch (error) {
     console.log(error)
-    // Clean up any created order if Razorpay fails
+    
     if (newOrder) {
       await orderModel.findByIdAndDelete(newOrder._id)
     }
@@ -182,6 +181,7 @@ const placeOrderRazorpay = async (req, res) => {
   }
 }
 
+// for razorpay verification
 const verifyRazorpay = async (req, res) => {
   try {
     
@@ -258,7 +258,6 @@ const userOrders = async (req, res) => {
 }
 
 // update order status from Admin Panel
-
 const updateStatus = async (req, res) => {
   try {
     const { orderId, status } = req.body

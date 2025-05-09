@@ -8,8 +8,8 @@ const authUser = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET) // Verifying token without Bearer
-    req.userId = decoded.id // Store userId in the request object
+    const decoded = jwt.verify(token, process.env.JWT_SECRET) 
+    req.userId = decoded.id
     next()
   } catch (error) {
     console.log(error)

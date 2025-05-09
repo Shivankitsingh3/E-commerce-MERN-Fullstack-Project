@@ -7,7 +7,7 @@ import axios from 'axios'
 const Verify = () => {
   const { token, setCartItems, backendUrl } = useContext(ShopContext)
   const [searchParams] = useSearchParams()
-  const navigate = useNavigate() // Using useNavigate instead of navigate from context
+  const navigate = useNavigate();
 
   const success = searchParams.get('success')
   const orderId = searchParams.get('orderId')

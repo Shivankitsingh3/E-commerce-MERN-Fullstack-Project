@@ -20,8 +20,7 @@ const adminAuth = async (req, res, next) => {
       })
     }
 
-    req.adminEmail = decoded.email // Optional, if you need it later
-    next()
+    req.adminEmail = decoded.email
   } catch (error) {
     console.log(error)
     res.json({ success: false, message: error.message })

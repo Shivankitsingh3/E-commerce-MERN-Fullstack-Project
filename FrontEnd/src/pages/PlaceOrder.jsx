@@ -7,7 +7,6 @@ import { ShopContext } from '../context/ShopContext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
-// Simple function to decode JWT tokens
 const decodeToken = (token) => {
   try {
     
@@ -98,16 +97,16 @@ const PlaceOrder = () => {
       handler: async (response) => {
         console.log(response)
         try {
-          // Just add the orderId (our database order ID)
+          
           const paymentData = {
             ...response,
-            orderId: order.receipt, // Include our database orderId
+            orderId: order.receipt, 
           }
 
           const { data } = await axios.post(
             `${backendUrl}/api/order/verifyRazorpay`,
             paymentData,
-            { headers: { token } } // The token contains userId
+            { headers: { token } }
           )
 
           if (data.success) {
